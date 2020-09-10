@@ -1,0 +1,32 @@
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+<div class="container mt-5">
+  <h2 class="header"><span>Tickets</span></h2>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-4 text-center mb-1">
+        <ngb-datepicker
+          [dayTemplate]="customDay"
+          [(ngModel)]="bsValue"
+          (ngModelChange)="changeDay($event)"
+          (navigate)="changeMonth($event.next)">
+        </ngb-datepicker>
+        <ng-template #customDay let-date let-currentMonth="currentMonth" let-selected="selected" let-focused="focused">
+          <div class="calendar-day"
+               [ngClass]="{
+                 'calendar-day_low-tickets': this.bsCountTickes[date.day] && this.bsCountTickes[date.day] <= lowTicket,
+                 'calendar-day_many-tickets': this.bsCountTickes[date.day] > lowTicket,
+                 'calendar-day_no-tickets': this.bsCountTickes[date.day] === 0,
+                 'text-muted': date.month !== currentMonth || checkCurrent(date, null, true),
+                 'selected': selected
+               }">
+            {{ date.day }}
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-12 col-md-8">
+        <app-sessions [data]="sessions" [visible]="visible" (bookTicket)="bookTicket($event)" *ngIf="sessions">
+        </app-sessions>
+      </div>
+    </div>
+  </div>
+</div>

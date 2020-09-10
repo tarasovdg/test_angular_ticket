@@ -1,0 +1,16 @@
+.session-main {
+  background-color: rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.9);
+  border-radius: 10px;
+  max-width: 576px;
+  padding: 10px;
+  color: #fff;
+  &-header {
+    text-align: center;
+    font-weight: bolder;
+  }
+  button {
+    padding: 0 5px;
+    font-size: 14px
+  }
+}

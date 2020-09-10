@@ -1,0 +1,38 @@
+.calendar-day {
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: .25rem;
+  &.selected {
+    background-color: #bfbfff;
+  }
+  &_low-tickets {
+    color: var(--orange);
+  }
+  &_many-tickets {
+    color: var(--green)
+  }
+  &_no-tickets {
+    color: red;
+  }
+  &:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+  }
+}
+
+.header {
+  color: #fff;
+  font-weight: bolder;
+  text-align: center;
+  span {
+    box-shadow: 0 0 10px rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+  }
+}
+
+.ngb-dp-months {
+  background-color: var(--light);
+}

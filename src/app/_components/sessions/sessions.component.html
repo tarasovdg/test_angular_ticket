@@ -1,0 +1,15 @@
+<div class="session-main" [@changeDay]="visible ? '1' : '0'">
+  <div class="session-main-header">
+    {{+data?.day | date: 'dd MMMM, yyyy'}}
+  </div>
+  <div  *ngFor="let session of data?.session | keyvalue " class="row">
+    <div class="col-7" style="height: 35px">
+      <span style="padding: 20px">{{getTime(session.key)}} - {{session.value !== maxTicket ? (maxTicket - session.value) + ' tickets left' : 'No tickets'}}</span>
+    </div>
+    <div class="col-5">
+      <button class="btn-primary m-1"
+              [hidden]="checkCurrent(momentDate(data.day), session.key) || session.value === maxTicket"
+              (click)="bookTicket.emit({time: session.key, day: data.day})"> Book now </button>
+    </div>
+  </div>
+</div>
